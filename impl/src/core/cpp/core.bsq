@@ -395,14 +395,14 @@ entity Regex provides Some {
     }
 
     method accepts(str: String, start?: Int, end?: Int): Bool
-        requires release Regex::s_rangeInBounds(s, start, end);
+        requires release Regex::s_rangeInBounds(str, start, end);
     {
         let s, e = start ?| 0, end ?| String::s_length(str);
         return Regex::s_accepts(str, s, e);
     }
 
     method match(str: String, start?: Int, end?: Int): RegexMatch
-        requires release Regex::s_rangeInBounds(s, start, end);
+        requires release Regex::s_rangeInBounds(str, start, end);
     {
         let s, e = start ?| 0, end ?| String::s_length(str);
 
