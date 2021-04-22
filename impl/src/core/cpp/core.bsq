@@ -406,7 +406,7 @@ entity Regex provides Some {
     {
         let s, e = start ?| 0, end ?| String::s_length(str);
 
-        let i, l = Regex::match(str, s, e);
+        let i, l = Regex::s_match(str, s, e);
         if(l == -1) {
             return RegexMatch@{ success=false, index=-1, length=-1 };
         }
